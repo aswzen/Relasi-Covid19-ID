@@ -1,46 +1,50 @@
 
-var svg = d3.select("svg"),
-    width = +svg.attr("width"),
-    height = +svg.attr("height"),
-    g = svg.append("g").attr("transform", "translate(" + (width / 2 + 40) + "," + (height / 2 + 90) + ")");
+var radius = 960 / 2;
 
-var stratify = d3.stratify()
-    .parentId(function(d) { return d.id.substring(0, d.id.lastIndexOf(".")); });
+var cluster = d3.layout.cluster()
+    .size([360, radius - 120]);
 
-var tree = d3.tree()
-    .size([2 * Math.PI, 500])
-    .separation(function(a, b) { return (a.parent == b.parent ? 1 : 2) / a.depth; });
+var diagonal = d3.svg.diagonal.radial()
+    .projection(function(d) { return [d.y, d.x / 180 * Math.PI]; });
 
-d3.csv("data.csv", function(error, data) {
-  if (error) throw error;
+var svg = d3.select("svg")
+    .attr("width", radius * 2)
+    .attr("height", radius * 2)
+  .append("g")
+    .attr("transform", "translate(" + radius + "," + radius + ")");
 
-  var root = tree(stratify(data));
+d3.json("./data.json", function(error, root) {
+  var nodes = cluster.nodes(root);
 
-  var link = g.selectAll(".link")
-    .data(root.links())
+  var link = svg.selectAll("path.link")
+      .data(cluster.links(nodes))
     .enter().append("path")
       .attr("class", "link")
-      .attr("d", d3.linkRadial()
-          .angle(function(d) { return d.x; })
-          .radius(function(d) { return d.y; }));
+      .attr("d", diagonal);
 
-  var node = g.selectAll(".node")
-    .data(root.descendants())
+  var node = svg.selectAll("g.node")
+      .data(nodes)
     .enter().append("g")
-      .attr("class", function(d) { return "node" + (d.children ? " node--internal" : " node--leaf"); })
-      .attr("transform", function(d) { return "translate(" + radialPoint(d.x, d.y) + ")"; });
+      .attr("class", "node")
+      .attr("transform", function(d) { return "rotate(" + (d.x - 90) + ")translate(" + d.y + ")"; })
 
   node.append("circle")
-      .attr("r", 2.5);
+      .attr("class",function(d){
+        if(d.recovered == true){
+          return "recovered"; 
+        } else {
+          return "nan"; 
+        }
+      })
+      .attr("r", 4.5);
 
   node.append("text")
-      .attr("dy", "0.31em")
-      .attr("x", function(d) { return d.x < Math.PI === !d.children ? 6 : -6; })
-      .attr("text-anchor", function(d) { return d.x < Math.PI === !d.children ? "start" : "end"; })
-      .attr("transform", function(d) { return "rotate(" + (d.x < Math.PI ? d.x - Math.PI / 2 : d.x + Math.PI / 2) * 180 / Math.PI + ")"; })
-      .text(function(d) { return d.id.substring(d.id.lastIndexOf(".") + 1); });
+      .attr("dy", ".31em")
+      .attr("text-anchor", function(d) { return d.x < 180 ? "start" : "end"; })
+      .attr("transform", function(d) { return d.x < 180 ? "translate(8)" : "rotate(180)translate(-8)"; })
+      .text(function(d) { 
+        return d.name; 
+      });
 });
 
-function radialPoint(x, y) {
-  return [(y = +y) * Math.cos(x -= Math.PI / 2), y * Math.sin(x)];
-}
+d3.select(self.frameElement).style("height", radius * 2 + "px");

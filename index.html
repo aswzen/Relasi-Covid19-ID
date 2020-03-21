@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	<link href="./custom.css" rel="stylesheet">
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript" ></script>
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" type="text/javascript" ></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.3.10/d3.min.js" type="text/javascript" ></script>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
 	<title>Peta Relasi Covid-19 Indonesia</title>
 </head>
 <body>
@@ -14,13 +17,17 @@
       	<a class="navbar-brand" href="#">Peta Relasi Covid-19 Indonesia</a>
     </nav>
     <div class="container-fluid">
-      	<div class="row">
+      	<div class="row mt-5">
 	        <div class="col">
-	          	<div class="card">
+	          	<div class="card mt-4">
 		            <div class="card-body">
 		              	<h5 class="card-title">COVID-19</h5>
-		             	<h6 class="card-subtitle mb-2 text-muted">Peta relasi infeksi COVID-19 di Indonesia</h6>
-		             	<p class="card-text"><svg width="960" height="1060"></svg></p>
+		             	<h6 class="card-subtitle mb-2 text-muted">Peta relasi kasus infeksi COVID-19 di Indonesia, yang tampil disini hanya kasus yang memiliki relasi lebih dari 1</h6>
+		             	<p>
+		             		<span style="color:green;font-size:20px">•</span> Sembuh
+		             		<span style="color:red;font-size:20px">•</span> Isolasi
+		             	</p>
+		             	<p class="card-text"><svg width="1366" height="1366"></svg></p>
 		            </div>
 	          	</div>
 	        </div>

@@ -1,0 +1,100 @@
+{
+  "name": "COVID19 INDONESIA",
+  "children": [
+    {
+      "name": "WNA JAPAN",
+      "children": [
+        {
+          "name": "KASUS 00001",
+          "recovered": true, 
+          "children": [
+            {
+              "name": "KASUS 00002",
+          	  "recovered": true, 
+              "size": 3938
+            },
+            {
+              "name": "KASUS 00005",
+              "size": 3812
+            },
+            {
+              "name": "KASUS 00010",
+              "size": 6714
+            },
+            {
+              "name": "KASUS 00011",
+              "size": 743
+            },
+            {
+              "name": "KASUS 00012",
+              "size": 743
+            }
+          ]
+        },
+        {
+          "name": "KASUS 00003",
+          "children": [
+            {
+              "name": "KASUS 00013",
+              "size": 3534
+            }
+          ]
+        },
+        {
+          "name": "KASUS 00004",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "NO TRACE",
+      "children": [
+        {
+          "name": "KASUS 00007",
+          "children": [
+            {
+              "name": "KASUS 00008",
+              "size": 1983
+            }
+          ]
+        },
+        {
+          "name": "KASUS 00007",
+          "children": [
+            {
+              "name": "KASUS 00008",
+              "size": 1983
+            }
+          ]
+        },
+        {
+          "name": "KASUS 00015",
+          "children": [
+            {
+              "name": "KASUS 00016",
+              "size": 1983
+            }
+          ]
+        },
+        {
+          "name": "KASUS 00020",
+          "children": [
+            {
+              "name": "KASUS 00027",
+              "size": 1983
+            }
+          ]
+        },
+        {
+          "name": "KASUS 00022",
+          "children": [
+            {
+              "name": "KASUS 00053",
+              "size": 1983
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
