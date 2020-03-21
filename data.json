@@ -59,15 +59,6 @@
           ]
         },
         {
-          "name": "KASUS 00007",
-          "children": [
-            {
-              "name": "KASUS 00008",
-              "size": 1983
-            }
-          ]
-        },
-        {
           "name": "KASUS 00015",
           "children": [
             {
@@ -91,6 +82,25 @@
             {
               "name": "KASUS 00053",
               "size": 1983
+            }
+          ]
+        }
+      ]
+    },{
+      "name": "CLUSTER BOGOR",
+      "desc": "Seminar",
+      "children": [
+        {
+          "name": "SOLO 00001",
+          "died": true
+        },
+        {
+          "name": "SOLO 00002",
+          "children": [
+            {
+              "name": "SOLO 00003",
+          	  "died": true,
+              "desc": "Keluarga"
             }
           ]
         }

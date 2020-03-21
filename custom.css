@@ -99,6 +99,11 @@ svg{
 }
 
 .nan{
+	fill:yellow !important;
+	stroke: yellow !important;
+}
+
+.died{
 	fill:red !important;
 	stroke: red !important;
 }

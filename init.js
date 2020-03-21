@@ -32,6 +32,8 @@ d3.json("./data.json", function(error, root) {
       .attr("class",function(d){
         if(d.recovered == true){
           return "recovered"; 
+        } else if(d.died == true){
+          return "died"; 
         } else {
           return "nan"; 
         }
